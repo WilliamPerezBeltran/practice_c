@@ -1,6 +1,10 @@
 #include <iostream>
 using namespace std;
 
+/*
+dfdfff
+*/
+
 // Variables are containers for storing data values.
 
 // In C++, there are different types of variables (defined with different keywords), for example:
