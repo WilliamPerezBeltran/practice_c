@@ -4,18 +4,30 @@ using namespace std;
 
 int main ()
 {
-  int n, t, c;
+  int dinero_inicial ,dinero, numero_apuesta, numero_rando;
+  bool pivote=true;
+  do{
+      if(pivote){
+          pivote=false;
+          cout<<"con cuento dinero llega"<<endl;
+          dinero_inicial = dinero
+          cin>>dinero;
+      }
+      cout<<"a que número le apuesta"<<endl;
+      cin>>numero_apuesta;
 
-  cout << "Enter the number of random numbers you want" << endl;
-  cin >> n;
+      if (numero_apuesta == std::rand()%30){
+        dinero+=200;
+      }else{
+        dinero+=100;
+      }
+      
+  }while(dinero > 100 && dinero <= 2000);
 
-  cout << "Random numbers are:" << endl;
+  cout<<"llego con "<< dinero_inicial <<" y salio con "<< dinero << endl;
 
-  for (c = 1; c <= n; c++)
-  {
-    t = random();
-    cout << t << endl;
-  }
+
+
 
   return 0;
 }

@@ -2,26 +2,25 @@
 using namespace std;
 int main()
 {
-  int first[20], second[20], sum[20], c, n;
-  
-  cout << "Enter the number of elements in the array ";
-  cin >> n;
 
-  cout << "Enter elements of first array" << endl;
 
-  for (c = 0; c < n; c++)
-    cin >> first[c];
+  int n,encontrar_divisibilidad=10000000;
+ 
 
-  cout << "Enter elements of second array" << endl;
+  cout<<"deme el numero ";
+  cin>>n;
 
-  for (c = 0; c < n; c++)
-    cin >> second[c];
+  while(encontrar_divisibilidad>=1 && encontrar_divisibilidad<10){
+    encontrar_divisibilidad = encontrar_divisibilidad/10;
 
-  cout << "Sum of elements of the arrays:" << endl;
-
-  for (c = 0; c < n; c++) {
-    sum[c] = first[c] + second[c];
-    cout << sum[c] << endl;
   }
+
+    cout<<"divisibilidad ";
+    cin>>encontrar_divisibilidad;
+
+
+
+
+
   return 0;
 }

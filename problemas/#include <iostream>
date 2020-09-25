@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+	int num=9, conteo=0, conteo_2=1;
+	while(conteo<=9){
+	    
+		
+		while(conteo_2<=conteo){
+			cout<<conteo*conteo_2<<" ";
+			conteo_2+=1;
+
+		} 
+		cout<<" "<<endl;
+		conteo+=1;
+	}
+}
