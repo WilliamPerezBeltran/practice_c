@@ -8,8 +8,8 @@ int main()
     int temp;
     for(int i=0;i<3;i++){
         for(int j=0;j<3;j++){
-            for(int l=i;l<3;l++){
-                for(int t=j;t<3;t++){
+            for(int l=0;l<3;l++){
+                for(int t=0;t<3;t++){
                     if(matriz[i][j]>matriz[l][t]){
                         temp=matriz[i][j];
                         matriz[i][j]=matriz[l][t];
