@@ -1,7 +1,6 @@
 #include <iostream>
 using namespace std;
 
-//estructuras utilizadas:
 struct datos{
 	string nombre;
 	int cedula;
@@ -9,17 +8,13 @@ struct datos{
 	int columna_silla;
 };
 
-//------------------------------------------------------
-
-//Funciones principales: 
 void mostrarteatro(int fila, int columna, int cine_asientos[][10]);
 datos reserva(int fila, int columna, int cine_asientos[][10]);
 bool check_asiento(int fila, int columna, int cine_asientos[][10]);
-// void mostrarteatro(int fila, int columna, int cine_asientos[][10]);
-
+void mostrar_clientes(int numero_de_reservas, datos dato_clientes[50]);
 
 int main(){
-	int cine_asientos[10][10],opcion,fila=10,columna=10;
+	int cine_asientos[10][10], opcion, fila=10, columna=10;
 	bool pivote=true;
 	datos cliente_permitido;
 	datos dato_clientes[50];
@@ -39,7 +34,6 @@ int main(){
         }
     }
 
-
 	do{
 		cout<<" "<<endl;
 		cout<<"Digite 1 para mostrar los asientos del teatro"<<endl;
@@ -55,36 +49,26 @@ int main(){
     	case 1:
     		mostrarteatro(fila, columna,cine_asientos);
     	break;
-    	// case 2:
-    	// 	mostrarclientes();
-    	// break;
+    	case 2:
+    		if (numero_de_reservas != 0){
+    			mostrar_clientes(numero_de_reservas, dato_clientes);
+    		}else{
+    			cout<<"Número de clientes: 0 "<<endl;
+    			cout<<"No hay clientes para mostar"<<endl;
+
+    		}
+    	break;
 		case 3:
 			cliente_permitido = reserva(fila,columna,cine_asientos); 
 			dato_clientes[numero_de_reservas]= cliente_permitido;
 			numero_de_reservas++;
 			cout<<" "<<endl;
-
-			// determino el length del array
-			dato_clientes_size = sizeof(dato_clientes)/sizeof(dato_clientes[0]);
-
-			for (int i = 0; i < dato_clientes_size; ++i){
-				cout<<"- Datos ingresado al sistema: "<<endl;
-				cout<< "   Nombre: "<<dato_clientes[i].nombre<<endl;
-				cout<< "   Cédula: "<<dato_clientes[i].cedula<<endl;
-				cout<< "   Fila: "<<dato_clientes[i].fila_silla<<endl;
-				cout<< "   Columna: "<<dato_clientes[i].columna_silla<<endl;
-				break;
-
-				
-			}
-
-			// cout<< cliente_permitido.nombre<<endl;
-			// cout<< cliente_permitido.cedula<<endl;
-			// cout<< cliente_permitido.fila_silla<<endl;
-			// cout<< cliente_permitido.columna_silla<<endl;
-
-
-
+			cout<<"- Datos ingresado al sistema: "<<endl;
+			cout<< "   Nombre: "<<dato_clientes[0].nombre<<endl;
+			cout<< "   Cédula: "<<dato_clientes[0].cedula<<endl;
+			cout<< "   Fila: "<<dato_clientes[0].fila_silla<<endl;
+			cout<< "   Columna: "<<dato_clientes[0].columna_silla<<endl;
+			break;
     	break;
   //   	case 4:
   //   		comprar(fila,columna,cine_asientos[][10]);
@@ -119,7 +103,6 @@ void mostrarteatro(int fila, int columna, int cine_asientos[][10]){
 	    cout<<"F"<<i<<" | ";
         for(int j=0;j<columna;j++){
             cout<<" "<<cine_asientos[i][j]<<"  ";
-            // cout<<"["<<cine_asientos[i][j]<<"] ";
         }
         cout<<" "<<endl;
     }
@@ -142,24 +125,17 @@ void mostrarteatro(int fila, int columna, int cine_asientos[][10]){
     }
 }
 
-
-
 datos reserva(int fila, int columna, int cine_asientos[][10]){
 	datos nuevo_cliente;
-
-	// int  numero_de_clientes=2, fila=2, columna=2;
 	bool ocupado;
-	// int cine_asientos[2][2];
 	int fila_cliente,columna_cliente;
 
-	// for(int i=0;i<numero_de_clientes;i++){
 	cout<<"ingrese su nombre completo: ";
 	cin>>nuevo_cliente.nombre;
 	cout<<"digite su cedula de identidad: ";
 	cin>>nuevo_cliente.cedula;
 
 	do{
-
 		cout<<"En que fila quiere su asiento: ";
 		cin>>nuevo_cliente.fila_silla;
 		fila_cliente = nuevo_cliente.fila_silla;
@@ -180,12 +156,7 @@ datos reserva(int fila, int columna, int cine_asientos[][10]){
 	mostrarteatro(fila, columna,cine_asientos);
 
 	return nuevo_cliente;
-		    
-		
-	// }
 }
-
-
 
 bool check_asiento(int fila_cliente,int columna_cliente,int cine_asientos[][10]){
 	if (cine_asientos[fila_cliente][columna_cliente] == 0){
@@ -210,5 +181,17 @@ bool check_asiento(int fila_cliente,int columna_cliente,int cine_asientos[][10])
 		cout<<"Por favor ingrese un número de asiento correcto"<<endl;
 		cout<<endl;
 		return false;
+	}
+}
+
+void mostrar_clientes(int numero_de_reservas, datos dato_clientes[50]){
+	cout<<" "<<endl;
+	cout<<"- Base de datos clientes: "<<endl;
+	for (int i = 0; i < numero_de_reservas; ++i){
+		cout<< "   Nombre: "<<dato_clientes[i].nombre<<endl;
+		cout<< "   Cédula: "<<dato_clientes[i].cedula<<endl;
+		cout<< "   Fila: "<<dato_clientes[i].fila_silla<<endl;
+		cout<< "   Columna: "<<dato_clientes[i].columna_silla<<endl;
+		cout<<" "<<endl;
 	}
 }
